@@ -93,65 +93,65 @@ double f_Example(double x) {
 double middle(double a, double b, int n) {
     auto start_time1 = std::chrono::high_resolution_clock::now();
     double h = (b - a) / n;
-    double summ = 0;
+    double S = 0;
 
     for (int i = 0; i < n; i++) {
-        summ += f_Example(a + h * (i + 0.5));
+        S += f_Example(a + h * (i + 0.5));
 
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
     cout << "\n\n" << duration1.count() << endl;
-    return summ * h;
+    return S * h;
 }
 
 double trapez(double a, double b, int n) {
     auto start_time1 = std::chrono::high_resolution_clock::now();
     double h = (b - a) / n;
-    double summ = (f_Example(a) + f_Example(b)) / 2;
+    double S = (f_Example(a) + f_Example(b)) / 2;
 
     for (int i = 1; i < n; i++) {
-        summ += f_Example(a+h*i);
+        S += f_Example(a+h*i);
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
     cout << "\n\n" << duration1.count() << endl;
-    return summ * h;
+    return S * h;
 }
 
 double gaus_2(double a, double b, int n) {
     auto start_time1 = std::chrono::high_resolution_clock::now();
     double h = (b - a) / n;
     double Xi = a + h / 2;
-    double summ = 0;
+    double S = 0;
     for (int i = 0; i < n; i++) {
         double Xi1 = Xi - h / 2 * 0.5773502692;
         double Xi2 = Xi + h / 2 * 0.5773502692;
-        summ += f_Example(Xi1) + f_Example(Xi2);
+        S += f_Example(Xi1) + f_Example(Xi2);
         Xi += h;
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
     cout << "\n\n" << duration1.count() << endl;
-    return summ * h / 2;
+    return S * h / 2;
 }
 
 double gaus_3(double a, double b, int n) {
     auto start_time1 = std::chrono::high_resolution_clock::now();
     double h = (b - a) / n;
     double Xi=a+h/2;
-    double summ = 0;
+    double S = 0;
     for (int i = 0; i < n; i++) {
         double Xi0=Xi;
         double Xi1=Xi-h/2* 0.7745966692;
         double Xi2=Xi-h/2* 0.7745966692;
-        summ += f_Example(Xi1)*5/9 + f_Example(Xi0)*8/9 + f_Example(Xi2)*5/9;
+        S += f_Example(Xi1)*5/9 + f_Example(Xi0)*8/9 + f_Example(Xi2)*5/9;
         Xi += h;
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
     cout << "\n\n" << duration1.count() << endl;
-    return summ*h/2;
+    return S*h/2;
 }
 
 void output(double rez) {
