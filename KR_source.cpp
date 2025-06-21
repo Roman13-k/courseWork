@@ -34,12 +34,6 @@ int main()
             input(a, b, n);
             double rezult = middle(a, b, n);
             output(rezult);
-            double  rezult2 = trapez(a, b, n);
-            output(rezult2);
-            double rezult3 = gaus_3(a, b, n);
-            output(rezult3);
-            double  rezult4 = gaus_2(a, b, n);
-            output(rezult4);
             break;
         };
         case 2: {
@@ -84,10 +78,10 @@ void input(double&a, double&b, int&n) {
 }
 
 double f_Example(double x) {
-   /* return pow(x, 3) + 5 * pow(x, 2) + 0.01 * exp(x);*/
+    return pow(x, 3) + 5 * pow(x, 2) + 0.01 * exp(x);
    /* return pow(x, 3) + 20 * pow(x, 2) - sin(x);*/
    /* return pow(x, 3) - 3 * pow(x, 2);*/
-    return  pow(x, 2) - 10 * cos(x);
+    /*return  pow(x, 2) - 10 * cos(x);*/
 }
 
 double middle(double a, double b, int n) {
@@ -101,7 +95,7 @@ double middle(double a, double b, int n) {
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
-    cout << "\n\n" << duration1.count() << endl;
+    /*cout << "\n\n" << duration1.count() << endl;*/
     return S * h;
 }
 
@@ -115,7 +109,7 @@ double trapez(double a, double b, int n) {
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
-    cout << "\n\n" << duration1.count() << endl;
+  /*  cout << "\n\n" << duration1.count() << endl;*/
     return S * h;
 }
 
@@ -132,7 +126,7 @@ double gaus_2(double a, double b, int n) {
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
-    cout << "\n\n" << duration1.count() << endl;
+   /* cout << "\n\n" << duration1.count() << endl;*/
     return S * h / 2;
 }
 
@@ -150,7 +144,7 @@ double gaus_3(double a, double b, int n) {
     }
     auto end_time1 = std::chrono::high_resolution_clock::now();
     auto duration1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time1 - start_time1);
-    cout << "\n\n" << duration1.count() << endl;
+  /*  cout << "\n\n" << duration1.count() << endl;*/
     return S*h/2;
 }
 
